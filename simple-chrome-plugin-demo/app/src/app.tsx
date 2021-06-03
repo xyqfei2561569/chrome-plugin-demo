@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import './app.less'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>潇洒111222</h1>
-      </div>
-    )
-  }
+const App: React.FC = () => {
+  const [val, setVal] = useState<string>('21212')
+  return (
+    <div className="App">
+      <h1>潇洒1ssadasdadasddasda12</h1>
+      <input type="text" value={val} onChange={(v) => setVal(v.target.value)} />
+    </div>
+  )
 }
 
 export default App
