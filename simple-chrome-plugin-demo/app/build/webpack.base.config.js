@@ -1,13 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const PROJECT_PATH = path.resolve(__dirname, `../`)
 
 module.exports = {
-  mode: NODE_ENV,
   entry: {
     index: path.resolve(PROJECT_PATH, './index'),
   },
@@ -40,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
+        use: ['css-loader', 'less-loader', 'postcss-loader'],
       },
     ],
   },
@@ -51,6 +50,5 @@ module.exports = {
       template: path.resolve(__dirname, '../index.html'),
       filename: 'index.html',
     }),
-    new MiniCssExtractPlugin({}),
   ],
 }

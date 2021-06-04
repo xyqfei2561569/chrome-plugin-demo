@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge')
 const webpack = require('webpack')
 
 module.exports = merge(webpackBaseConfig, {
+  mode: 'development',
   devtool: 'source-map',
   devServer: {
     contentBase: './dist',
