@@ -12,20 +12,19 @@ const App: React.FC = () => {
     }
   }, [])
 
-  const getCookie = () => {
+  const getCookie = async () => {
     let queryOptions = { active: true, currentWindow: true }
-    chrome.tabs.query(queryOptions, (tabs) => {
-      let [tab] = tabs
-      chrome.cookies.get(
-        {
-          name: cookieId,
-          url: tab.url || '',
-        },
-        (e) => {
-          setVal(e?.value || '')
-        }
-      )
-    })
+    const [tab] = await chrome.tabs.query(queryOptions)
+    console.log('%c 🥩 tab: ', 'font-size:20px;background-color: #ED9EC7;color:#fff;', tab)
+    chrome.cookies.get(
+      {
+        name: cookieId,
+        url: tab.url || '',
+      },
+      (e) => {
+        setVal(e?.value || '')
+      }
+    )
   }
   return (
     <div className="App">
