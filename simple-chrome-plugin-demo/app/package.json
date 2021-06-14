@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server/server.js",
-    "build": "./node_modules/.bin/webpack -w --config ./build/webpack.pro.config.js",
+    "build": "./node_modules/.bin/webpack --config ./build/webpack.pro.config.js",
+    "build-watch": "./node_modules/.bin/webpack -w --config ./build/webpack.pro.config.js",
     "server": "./node_modules/.bin/webpack-dev-server --config ./build/webpack.dev.config.js"
   },
   "keywords": [],

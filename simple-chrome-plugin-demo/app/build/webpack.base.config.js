@@ -14,8 +14,11 @@ module.exports = {
     path: path.resolve(PROJECT_PATH, './dist'),
     filename: `[name]${NODE_ENV === 'production' ? '_[contenthash:6]' : ''}.js`,
   },
+  optimization: {
+    usedExports: true,
+  },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.tsx'],
+    extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
     alias: {
       '@': path.join(__dirname, './src'),
     },
@@ -23,7 +26,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
