@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Demo from '../component/demo'
+import { Input } from 'antd'
+import { Button } from 'antd~v4.6.2'
 import './app.less'
 
 const App: React.FC = () => {
@@ -15,7 +17,6 @@ const App: React.FC = () => {
   const getCookie = async () => {
     let queryOptions = { active: true, currentWindow: true }
     const [tab] = await chrome.tabs.query(queryOptions)
-    console.log('%c 🥩 tab: ', 'font-size:20px;background-color: #ED9EC7;color:#fff;', tab)
     chrome.cookies.get(
       {
         name: cookieId,
@@ -31,12 +32,14 @@ const App: React.FC = () => {
       <h1>潇洒1ssadasd4sddasda121</h1>
       <div>
         cookieId
-        <input type="text" value={cookieId} onChange={(v) => setCookieId(v.target.value)} />
+        <Input type="text" value={cookieId} onChange={(v) => setCookieId(v.target.value)} />
       </div>
       <div>
-        <input type="text" value={val} onChange={(v) => setVal(v.target.value)} />
+        <Input type="text" value={val} onChange={(v) => setVal(v.target.value)} />
       </div>
-      <button onClick={getCookie}>getCookie</button>
+      <Button type="primary" onClick={getCookie}>
+        getCookie
+      </Button>
       <Demo ref={test} a="223332" />
     </div>
   )

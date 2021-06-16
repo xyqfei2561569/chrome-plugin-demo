@@ -44,6 +44,11 @@ module.exports = {
         test: /\.less$/,
         use: ['css-loader', 'less-loader', 'postcss-loader'],
       },
+      {
+        test: /\.css$/,
+        use: ['css-loader'],
+      },
+      { test: /\.txt$/, use: 'raw-loader' },
     ],
   },
   plugins: [

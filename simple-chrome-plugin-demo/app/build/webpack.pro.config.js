@@ -13,6 +13,10 @@ module.exports = merge(webpackBaseConfig, {
         test: /\.less$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   plugins: [new MiniCssExtractPlugin(), new OptimizeCssAssetsPlugin()],
